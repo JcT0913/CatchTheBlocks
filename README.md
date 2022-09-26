@@ -1,4 +1,4 @@
-# catchTheBlocks
+# CatchTheBlocks
 
 Game 625 - Game Development II
 2022 Fall
