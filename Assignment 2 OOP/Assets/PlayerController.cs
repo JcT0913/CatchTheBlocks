@@ -23,10 +23,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.gameObject.tag == "Block")
         {
             Debug.Log("Block caught");
             other.gameObject.SetActive(false);
         }
+        */
     }
 }

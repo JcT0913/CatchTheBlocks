@@ -5,13 +5,15 @@ using UnityEngine;
 public abstract class BlocksClass : MonoBehaviour
 {
     protected string className;
-    public int score;
-    public int costInLife;
+    protected int score;
+    protected int costInLife;
 
     private List<ObserverOfBlocks> _observerOfBlocks = new List<ObserverOfBlocks>();
 
     public abstract void returnLog();
     public abstract string returnClassName();
+    public abstract int returnScore();
+    public abstract int returnCostInLife();
 
     public void AddObserverOfBlocks(ObserverOfBlocks observer)
     {
