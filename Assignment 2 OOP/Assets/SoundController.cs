@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour, ObserverOfBlocks
 {
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerPrefs.DeleteAll();
+
+        audioSource = GetComponent<AudioSource>();
+
         foreach (BlocksClass block in FindObjectsOfType<BlocksClass>())
         {
             block.AddObserverOfBlocks(this);
@@ -25,6 +30,7 @@ public class SoundController : MonoBehaviour, ObserverOfBlocks
         if (blocksType == BlocksType.SquareBlock)
         {
             Debug.Log("A Square Block Caught");
+            audioSource.Play();
         }
     }
 }
