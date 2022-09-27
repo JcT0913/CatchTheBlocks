@@ -5,6 +5,12 @@ using UnityEngine;
 public class RepositoryController : MonoBehaviour, ObserverOfBlocks
 {
     private Dictionary<string, List<BlocksClass>> repository = new Dictionary<string, List<BlocksClass>>();
+    private List<ObserverOfRepository> _observerOfRepositories = new List<ObserverOfRepository>();
+
+    public Dictionary<string, List<BlocksClass>> returnRepository()
+    {
+        return this.repository;
+    }
 
     public void AddElement(string key, BlocksClass block)
     {
@@ -55,7 +61,27 @@ public class RepositoryController : MonoBehaviour, ObserverOfBlocks
     {
         
     }
-    
+
+    // repository as the subject been observered by UI
+    public void AddObserverOfRepository(ObserverOfRepository observer)
+    {
+        _observerOfRepositories.Add(observer);
+    }
+
+    public void RemoveObserverOfRepository(ObserverOfRepository observer)
+    {
+        _observerOfRepositories.Remove(observer);
+    }
+
+    public void Notify(RepositoryController repository, BlocksType blocksType)
+    {
+        foreach (ObserverOfRepository observer in _observerOfRepositories)
+        {
+            observer.OnNotify(repository, blocksType);
+        }
+    }
+
+    // repository as observer of blocks collected
     public void OnNotify(BlocksClass blocksClass, BlocksType blocksType)
     {
         if (blocksType == BlocksType.SquareBlock)
@@ -105,5 +131,7 @@ public class RepositoryController : MonoBehaviour, ObserverOfBlocks
             //Debug.Log("key-value pairs: " + repository.Count.ToString());
             //Debug.Log("length of key " + key + " 's list: " + list.Count.ToString());
         }
+
+        Notify(this, blocksType);
     }
 }

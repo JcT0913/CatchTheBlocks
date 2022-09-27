@@ -7,6 +7,11 @@ public interface ObserverOfBlocks
     void OnNotify(BlocksClass blocksClass, BlocksType blocksType);
 }
 
+public interface ObserverOfRepository
+{
+    void OnNotify(RepositoryController repository, BlocksType blocksType);
+}
+
 public enum BlocksType
 {
     SquareBlock,
