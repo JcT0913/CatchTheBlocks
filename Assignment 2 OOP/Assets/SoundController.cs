@@ -32,5 +32,23 @@ public class SoundController : MonoBehaviour, ObserverOfBlocks
             Debug.Log("A Square Block Caught");
             audioSource.Play();
         }
+
+        if (blocksType == BlocksType.CapsuleBlock)
+        {
+            Debug.Log("A Capsule Block Caught");
+            audioSource.Play();
+        }
+
+        if (blocksType == BlocksType.DiamondBlock)
+        {
+            Debug.Log("A Diamond Block Caught");
+            audioSource.Play();
+        }
+
+        if (blocksType == BlocksType.BombBlock)
+        {
+            Debug.Log("A Bomb Block Caught");
+            audioSource.Play();
+        }
     }
 }
