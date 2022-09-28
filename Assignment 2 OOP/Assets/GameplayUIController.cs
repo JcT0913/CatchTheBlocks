@@ -13,6 +13,8 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
     public TextMeshProUGUI capsuleCollectedText;
     public TextMeshProUGUI diamondCollectedText;
     public TextMeshProUGUI bombCollectedText;
+    public GameObject gameplayBackground;
+    public GameObject gameoverBackground;
 
     private int points = 0;
     private int remainedLife = 5;
@@ -24,6 +26,10 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
     // Start is called before the first frame update
     void Start()
     {
+        gameplayBackground.SetActive(true);
+        gameoverBackground.SetActive(false);
+        Time.timeScale = 1;
+
         PlayerPrefs.DeleteAll();
 
         foreach (RepositoryController dict in FindObjectsOfType<RepositoryController>())
@@ -42,12 +48,29 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
     // Update is called once per frame
     void Update()
     {
-        
+        if (remainedLife <= 0)
+        {
+            Time.timeScale = 0;
+            gameplayBackground.SetActive(false);
+            gameoverBackground.SetActive(true);
+        }
     }
 
     public void ReturnButton()
     {
         Debug.Log("Return Button Pressed");
+        EditorSceneManager.LoadScene(0);
+    }
+
+    public void NewTryButton()
+    {
+        Debug.Log("New Try Button Pressed");
+        EditorSceneManager.LoadScene(1);
+    }
+
+    public void MainMenuButton()
+    {
+        Debug.Log("Main Menu Button Pressed");
         EditorSceneManager.LoadScene(0);
     }
 
