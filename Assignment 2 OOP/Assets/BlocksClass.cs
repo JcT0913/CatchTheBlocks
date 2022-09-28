@@ -30,7 +30,7 @@ public abstract class BlocksClass : MonoBehaviour
     public void ToNewPosition()
     {
         float posX = Random.Range(-8.4f, 8.4f);
-        float posY = Random.Range(6.5f, 10f);
+        float posY = Random.Range(6.5f, 20f);
         transform.position = new Vector3(posX, posY, transform.position.z);
     }
 
