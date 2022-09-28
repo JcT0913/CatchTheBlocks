@@ -7,13 +7,32 @@ public abstract class BlocksClass : MonoBehaviour
     protected string className;
     protected int score;
     protected int costInLife;
+    protected float fallSpeed = 1f;
 
     private List<ObserverOfBlocks> _observerOfBlocks = new List<ObserverOfBlocks>();
 
-    public abstract void returnLog();
-    public abstract string returnClassName();
-    public abstract int returnScore();
-    public abstract int returnCostInLife();
+    public abstract void ReturnLog();
+    public abstract string ReturnClassName();
+    public abstract int ReturnScore();
+    public abstract int ReturnCostInLife();
+
+    public void FallingDown()
+    {
+        // this.fallSpeed += Time.deltaTime / 400;
+        transform.position = new Vector3(transform.position.x, transform.position.y - fallSpeed / 75, transform.position.z);
+
+        if (this.transform.position.y <= -6.5f)
+        {
+            this.ToNewPosition();
+        }
+    }
+
+    public void ToNewPosition()
+    {
+        float posX = Random.Range(-8.4f, 8.4f);
+        float posY = Random.Range(6.5f, 10f);
+        transform.position = new Vector3(posX, posY, transform.position.z);
+    }
 
     public void AddObserverOfBlocks(ObserverOfBlocks observer)
     {

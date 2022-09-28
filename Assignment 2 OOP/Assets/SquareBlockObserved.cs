@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class SquareBlockObserved : BlocksClass
 {
-    public override void returnLog()
+    public override void ReturnLog()
     {
         Debug.Log("Square Block Observed");
     }
 
-    public override string returnClassName()
+    public override string ReturnClassName()
     {
         // return "SquareBlock";
         return this.className;
     }
 
-    public override int returnScore()
+    public override int ReturnScore()
     {
         return this.score;
     }
 
-    public override int returnCostInLife()
+    public override int ReturnCostInLife()
     {
         return this.costInLife;
     }
@@ -36,7 +36,7 @@ public class SquareBlockObserved : BlocksClass
     // Update is called once per frame
     void Update()
     {
-        
+        this.FallingDown();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,7 +44,9 @@ public class SquareBlockObserved : BlocksClass
         if (other.gameObject.tag == "Player")
         {
             Notify(this, BlocksType.SquareBlock);
-            this.gameObject.SetActive(false);
+            
+            //this.gameObject.SetActive(false);
+            this.ToNewPosition();
         }
     }
 }

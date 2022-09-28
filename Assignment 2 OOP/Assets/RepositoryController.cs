@@ -90,7 +90,7 @@ public class RepositoryController : MonoBehaviour, ObserverOfBlocks
             //Debug.Log("Score: " + blocksClass.returnScore().ToString());
             //Debug.Log("costInLife: " + blocksClass.returnCostInLife().ToString());
 
-            AddElement(blocksClass.returnClassName(), blocksClass);
+            AddElement(blocksClass.ReturnClassName(), blocksClass);
 
             //List<BlocksClass> list;
             //string key = blocksClass.returnClassName();
@@ -101,7 +101,7 @@ public class RepositoryController : MonoBehaviour, ObserverOfBlocks
 
         if (blocksType == BlocksType.CapsuleBlock)
         {
-            AddElement(blocksClass.returnClassName(), blocksClass);
+            AddElement(blocksClass.ReturnClassName(), blocksClass);
 
             //List<BlocksClass> list;
             //string key = blocksClass.returnClassName();
@@ -112,7 +112,7 @@ public class RepositoryController : MonoBehaviour, ObserverOfBlocks
 
         if (blocksType == BlocksType.DiamondBlock)
         {
-            AddElement(blocksClass.returnClassName(), blocksClass);
+            AddElement(blocksClass.ReturnClassName(), blocksClass);
 
             //List<BlocksClass> list;
             //string key = blocksClass.returnClassName();
@@ -123,7 +123,7 @@ public class RepositoryController : MonoBehaviour, ObserverOfBlocks
 
         if (blocksType == BlocksType.BombBlock)
         {
-            AddElement(blocksClass.returnClassName(), blocksClass);
+            AddElement(blocksClass.ReturnClassName(), blocksClass);
 
             //List<BlocksClass> list;
             //string key = blocksClass.returnClassName();
