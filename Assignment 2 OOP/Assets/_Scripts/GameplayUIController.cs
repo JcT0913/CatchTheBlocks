@@ -22,6 +22,11 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
     private int capsuleCollected = 0;
     private int diamondCollected = 0;
     private int bombCollected = 0;
+    private bool quickSaved = false;
+
+    // singleton pattern only have one static instance, initiated at the beginning in ReplayManagerController.cs,
+    // write this line for updating the variables inside
+    SingletonPatternUnity instance;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +58,26 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
             Time.timeScale = 0;
             gameplayBackground.SetActive(false);
             gameoverBackground.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            quickSaved = true;
+            Debug.Log("UI Information Quick Saved");
+            instance = SingletonPatternUnity.Instance;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (quickSaved == true)
+            {
+                Debug.Log("UI Information Quick Loaded");
+                instance.TestSingleton();
+            }
+            else
+            {
+                Debug.Log("Error. You don't have a quick save data.");
+            }
         }
     }
 
