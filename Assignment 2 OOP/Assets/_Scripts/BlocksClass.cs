@@ -19,12 +19,12 @@ public abstract class BlocksClass : MonoBehaviour
     public void FallingDown()
     {
         // this.fallSpeed += Time.deltaTime / 400;
-        //transform.position = new Vector3(transform.position.x, transform.position.y - fallSpeed / 75, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y - fallSpeed / 75, transform.position.z);
 
-        //if (this.transform.position.y <= -6.5f)
-        //{
-        //    this.ToNewPosition();
-        //}
+        if (this.transform.position.y <= -6.5f)
+        {
+            this.ToNewPosition();
+        }
     }
 
     public void ToNewPosition()
