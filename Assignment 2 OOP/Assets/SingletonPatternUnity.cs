@@ -79,37 +79,37 @@ public class SingletonPatternUnity : MonoBehaviour
 
     public Vector3 ReturnSavedPlayerPosition()
     {
-        Debug.Log(this.savedPlayerPosition.ToString());
+        Debug.Log("saved player position: " + this.savedPlayerPosition.ToString());
         return this.savedPlayerPosition;
     }
 
     public int ReturnSavedRemainedLife()
     {
-        Debug.Log(this.savedRemainedLife.ToString());
+        Debug.Log("saved remained life: " + this.savedRemainedLife.ToString());
         return this.savedRemainedLife;
     }
 
     public int ReturnSavedSquareCollected()
     {
-        Debug.Log(this.savedSquareCollected.ToString());
+        Debug.Log("saved squares: " + this.savedSquareCollected.ToString());
         return this.savedSquareCollected;
     }
 
     public int ReturnSavedCapsuleCollected()
     {
-        Debug.Log(this.savedCapsuleCollected.ToString());
+        Debug.Log("saved capsules: " + this.savedCapsuleCollected.ToString());
         return this.savedCapsuleCollected;
     }
 
     public int ReturnSavedDiamondCollected()
     {
-        Debug.Log(this.savedDiamondCollected.ToString());
+        Debug.Log("saved diamonds: " + this.savedDiamondCollected.ToString());
         return this.savedDiamondCollected;
     }
 
     public int ReturnSavedBombCollected()
     {
-        Debug.Log(this.savedBombCollected.ToString());
+        Debug.Log("saved bombs: " + this.savedBombCollected.ToString());
         return this.savedBombCollected;
     }
 }

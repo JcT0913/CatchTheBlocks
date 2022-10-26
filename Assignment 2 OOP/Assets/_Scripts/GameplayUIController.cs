@@ -65,6 +65,7 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
             quickSaved = true;
             Debug.Log("UI Information Quick Saved");
             instance = SingletonPatternUnity.Instance;
+            instance.UpdateSavedRemainedLife(this.remainedLife);
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -73,6 +74,16 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
             {
                 Debug.Log("UI Information Quick Loaded");
                 instance.TestSingleton();
+
+                this.remainedLife = instance.ReturnSavedRemainedLife();
+                Debug.Log("remained life now: " + this.remainedLife);
+
+                pointsText.text = points.ToString() + " Points";
+                remainedLifeText.text = "Remained Life: " + remainedLife.ToString();
+                squareCollectedText.text = "Square: " + squareCollected.ToString();
+                capsuleCollectedText.text = "Capsule: " + capsuleCollected.ToString();
+                diamondCollectedText.text = "Diamond: " + diamondCollected.ToString();
+                bombCollectedText.text = "Bomb: " + bombCollected.ToString();
             }
             else
             {
