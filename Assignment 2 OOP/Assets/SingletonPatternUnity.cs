@@ -9,6 +9,7 @@ public class SingletonPatternUnity : MonoBehaviour
     private float randomNumber;
 
     private Vector3 savedPlayerPosition;
+    private int savedPoints;
     private int savedRemainedLife;
     private int savedSquareCollected;
     private int savedCapsuleCollected;
@@ -58,6 +59,12 @@ public class SingletonPatternUnity : MonoBehaviour
     {
         this.randomNumber = Random.Range(0f, 1f);
         this.savedPlayerPosition = new Vector3(0, -4, 0);
+        this.savedPoints = 0;
+        this.savedRemainedLife = 5;
+        this.savedSquareCollected = 0;
+        this.savedCapsuleCollected = 0;
+        this.savedDiamondCollected = 0;
+        this.savedBombCollected = 0;
         
     }
 
