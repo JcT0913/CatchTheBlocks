@@ -79,15 +79,39 @@ public class SingletonPatternUnity : MonoBehaviour
         this.savedPlayerPosition = newPlayerPosition;
     }
 
+    public void UpdateSavedPoints(int newPoints)
+    {
+        this.savedPoints = newPoints;
+    }
+
     public void UpdateSavedRemainedLife(int newRemainedLife)
     {
         this.savedRemainedLife = newRemainedLife;
+    }
+
+    public void UpdateSavedItemsCollected(int newSquareCollected, int newCapsuleCollected, int newDiamondCollected, int newBombCollected)
+    {
+        this.savedSquareCollected = newSquareCollected;
+        this.savedCapsuleCollected = newCapsuleCollected;
+        this.savedDiamondCollected = newDiamondCollected;
+        this.savedBombCollected = newBombCollected;
+
+        Debug.Log("saved squares: " + this.savedSquareCollected.ToString());
+        Debug.Log("saved capsules: " + this.savedCapsuleCollected.ToString());
+        Debug.Log("saved diamonds: " + this.savedDiamondCollected.ToString());
+        Debug.Log("saved bombs: " + this.savedBombCollected.ToString());
     }
 
     public Vector3 ReturnSavedPlayerPosition()
     {
         Debug.Log("saved player position: " + this.savedPlayerPosition.ToString());
         return this.savedPlayerPosition;
+    }
+
+    public int ReturnSavedPoints()
+    {
+        Debug.Log("saved points: " + this.savedPoints.ToString());
+        return this.savedPoints;
     }
 
     public int ReturnSavedRemainedLife()

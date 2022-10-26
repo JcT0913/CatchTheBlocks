@@ -65,7 +65,9 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
             quickSaved = true;
             Debug.Log("UI Information Quick Saved");
             instance = SingletonPatternUnity.Instance;
+            instance.UpdateSavedPoints(this.points);
             instance.UpdateSavedRemainedLife(this.remainedLife);
+            instance.UpdateSavedItemsCollected(this.squareCollected, this.capsuleCollected, this.diamondCollected, this.bombCollected);
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -75,8 +77,19 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
                 Debug.Log("UI Information Quick Loaded");
                 instance.TestSingleton();
 
+                this.points = instance.ReturnSavedPoints();
                 this.remainedLife = instance.ReturnSavedRemainedLife();
+                this.squareCollected = instance.ReturnSavedSquareCollected();
+                this.capsuleCollected = instance.ReturnSavedCapsuleCollected();
+                this.diamondCollected = instance.ReturnSavedDiamondCollected();
+                this.bombCollected = instance.ReturnSavedBombCollected();
+
+                Debug.Log("points now: " + this.points);
                 Debug.Log("remained life now: " + this.remainedLife);
+                Debug.Log("collected square now: " + this.squareCollected);
+                Debug.Log("collected capsule now: " + this.capsuleCollected);
+                Debug.Log("collected diamond now: " + this.diamondCollected);
+                Debug.Log("collected bomb now: " + this.bombCollected);
 
                 pointsText.text = points.ToString() + " Points";
                 remainedLifeText.text = "Remained Life: " + remainedLife.ToString();
@@ -119,6 +132,7 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
             string key = "SquareBlock";
             repository.returnRepository().TryGetValue(key, out list);
             squareCollectedText.text = "Square: " + list.Count.ToString();
+            squareCollected = list.Count;
 
             points += 3;
         }
@@ -128,6 +142,7 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
             string key = "CapsuleBlock";
             repository.returnRepository().TryGetValue(key, out list);
             capsuleCollectedText.text = "Capsule: " + list.Count.ToString();
+            capsuleCollected = list.Count;
 
             points += 2;
         }
@@ -137,6 +152,7 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
             string key = "DiamondBlock";
             repository.returnRepository().TryGetValue(key, out list);
             diamondCollectedText.text = "Diamond: " + list.Count.ToString();
+            diamondCollected = list.Count;
 
             points += 4;
         }
@@ -146,6 +162,7 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
             string key = "BombBlock";
             repository.returnRepository().TryGetValue(key, out list);
             bombCollectedText.text = "Bomb: " + list.Count.ToString();
+            bombCollected = list.Count;
 
             remainedLife -= 1;
         }
