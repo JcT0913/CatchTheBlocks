@@ -123,6 +123,7 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
         EditorSceneManager.LoadScene(0);
     }
 
+    // as the observer of repository
     public void OnNotify(RepositoryController repository, BlocksType blocksType)
     {
         List<BlocksClass> list;
@@ -131,8 +132,9 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
         {
             string key = "SquareBlock";
             repository.returnRepository().TryGetValue(key, out list);
-            squareCollectedText.text = "Square: " + list.Count.ToString();
-            squareCollected = list.Count;
+            //squareCollectedText.text = "Square: " + list.Count.ToString();
+            squareCollected += 1;
+            squareCollectedText.text = "Square: " + this.squareCollected.ToString();
 
             points += 3;
         }
@@ -141,8 +143,9 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
         {
             string key = "CapsuleBlock";
             repository.returnRepository().TryGetValue(key, out list);
-            capsuleCollectedText.text = "Capsule: " + list.Count.ToString();
-            capsuleCollected = list.Count;
+            //capsuleCollectedText.text = "Capsule: " + list.Count.ToString();
+            capsuleCollected += 1;
+            capsuleCollectedText.text = "Capsule: " + this.capsuleCollected.ToString();
 
             points += 2;
         }
@@ -151,8 +154,9 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
         {
             string key = "DiamondBlock";
             repository.returnRepository().TryGetValue(key, out list);
-            diamondCollectedText.text = "Diamond: " + list.Count.ToString();
-            diamondCollected = list.Count;
+            //diamondCollectedText.text = "Diamond: " + list.Count.ToString();
+            diamondCollected += 1;
+            diamondCollectedText.text = "Diamond: " + this.diamondCollected.ToString();
 
             points += 4;
         }
@@ -161,8 +165,9 @@ public class GameplayUIController : MonoBehaviour, ObserverOfRepository
         {
             string key = "BombBlock";
             repository.returnRepository().TryGetValue(key, out list);
-            bombCollectedText.text = "Bomb: " + list.Count.ToString();
-            bombCollected = list.Count;
+            //bombCollectedText.text = "Bomb: " + list.Count.ToString();
+            bombCollected += 1;
+            bombCollectedText.text = "Bomb: " + this.bombCollected.ToString();
 
             remainedLife -= 1;
         }
